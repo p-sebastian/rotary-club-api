@@ -1,0 +1,58 @@
+{
+  "name": "rotary-club",
+  "version": "0.0.1",
+  "description": "Rotary Club Backend",
+  "main": "app.js",
+  "author": "Sebastian Penafiel <penafiel.sebastian@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check --watch",
+    "start": "babel-node -x \".ts\" src/index.ts",
+    "clear": "rimraf dist",
+    "build": "yarn clear && yarn build:babel",
+    "watch:babel": "babel src --out-dir lib --extensions '.ts,.tsx' --watch",
+    "build:babel": "babel src --out-dir dist --extensions '.ts,.tsx'",
+    "watch": "nodemon --watch src --ext ts --exec yarn start"
+  },
+  "dependencies": {
+    "@marblejs/core": "^3.4.3",
+    "@marblejs/middleware-body": "^3.4.3",
+    "@marblejs/middleware-logger": "^3.4.3",
+    "fp-ts": "^2.8.3",
+    "rxjs": "^6.6.3",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/runtime": "^7.11.2",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "import-sort-style-module": "^6.0.0",
+    "prettier": "^2.1.2",
+    "prettier-plugin-import-sort": "^0.0.6",
+    "rimraf": "^3.0.2"
+  },
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "parser": "typescript",
+      "style": "module"
+    }
+  }
+}

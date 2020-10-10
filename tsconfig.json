@@ -1,0 +1,54 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "lib": ["esnext.array", "esnext.asynciterable", "esnext", "es2020"],
+    "module": "es2020",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    // Ensure that .d.ts files are created by tsc, but not .js files
+    "declaration": true,
+    // Ensure that Babel can safely transpile files in the TypeScript project
+    "isolatedModules": true,
+    "noEmit": true,
+    "outDir": "dist",
+    "paths": {
+      "@assets/*": ["src/ui/assets/*"],
+      "@components/*": ["src/ui/components/*"],
+      "@epics/*": ["src/redux/epics/*"],
+      "@hoc/*": ["src/hoc/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@navigation/*": ["src/ui/navigation/*"],
+      "@services/*": ["src/services/*"],
+      "@slices/*": ["src/redux/slices/*"],
+      "@ui/*": ["src/ui/*"],
+      "@util/*": ["src/utilities/*"],
+      "@type/*": ["src/type/*"]
+    },
+    "preserveConstEnums": true,
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "target": "es2017"
+  },
+  "exclude": ["dist", "node_modules", "jest.config.js", "App.js", "src/aws-exports.js", "ReactotronConfig.js"],
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts",
+    "__tests__/App-test.js",
+    "rn-cli.config.js",
+    "App.ts",
+    "@types/**/*.d.ts"
+  ],
+  "types": []
+}

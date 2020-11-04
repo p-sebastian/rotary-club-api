@@ -57,3 +57,4 @@ env.ts
 
 lib
 dist
+./src/config/env.ts

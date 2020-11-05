@@ -2,7 +2,7 @@ import {httpListener} from '@marblejs/core'
 import {bodyParser$} from '@marblejs/middleware-body'
 import {logger$} from '@marblejs/middleware-logger'
 
-import {api$} from './api.effects'
+import {api$} from './routes'
 
 const middlewares = [
   logger$(),
@@ -12,12 +12,7 @@ const middlewares = [
   // ...
 ]
 
-const effects = [
-  api$,
-  // endpoint2$
-  // endpoint3$
-  // ...
-]
+const effects = [api$]
 
 export const listener = httpListener({
   middlewares,

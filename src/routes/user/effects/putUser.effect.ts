@@ -1,6 +1,6 @@
 import {r} from '@marblejs/core'
 import {requestValidator$} from '@marblejs/middleware-io'
-import {onError} from '@utils/error.util'
+import {onError} from '@util/error.util'
 import {catchError, map, mergeMap} from 'rxjs/operators'
 
 import {UserDao} from '../model/user.dao'

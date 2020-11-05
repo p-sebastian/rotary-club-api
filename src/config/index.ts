@@ -26,6 +26,7 @@ interface IConfig {
   }
 }
 
+console.info(process.env.DB_URL_MAIN || ENV.DB_URL)
 export const Config: IConfig = {
   env: (process.env.NODE_ENV as NodeEnv) || ENV.NODE_ENV,
   cert: process.env.SSL_CERT || ENV.SSL_CERT,

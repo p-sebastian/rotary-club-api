@@ -25,6 +25,7 @@
     "@marblejs/middleware-io": "^3.4.3",
     "@marblejs/middleware-jwt": "^3.4.3",
     "@marblejs/middleware-logger": "^3.4.3",
+    "@marblejs/middleware-multipart": "^3.4.3",
     "@typegoose/typegoose": "^7.4.1",
     "amazon-cognito-identity-js": "^4.4.0",
     "aws-sdk": "^2.771.0",

@@ -22,7 +22,8 @@
     "paths": {
       "@routes/*": ["routes/*"],
       "@config": ["config"],
-      "@util": ["util"]
+      "@util/*": ["util/*"],
+      "@common": ["common"]
     }
   },
   "exclude": ["dist", "node_modules", "jest.config.js", "App.js", "src/aws-exports.js", "ReactotronConfig.js"],

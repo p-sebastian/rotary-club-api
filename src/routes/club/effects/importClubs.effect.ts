@@ -1,19 +1,25 @@
-import {LoggerTag, LoggerToken, r, use, useContext} from '@marblejs/core'
+import {r, use} from '@marblejs/core'
 import {multipart$} from '@marblejs/middleware-multipart'
-import {mapTo, tap} from 'rxjs/operators'
+import {map, mergeMap, tap} from 'rxjs/operators'
+import xlsx from 'xlsx'
+
+import {ClubDao} from '../model/club.dao'
 
 export const importClubs$ = r.pipe(
   r.matchPath('/import'),
   r.matchType('POST'),
-  r.useEffect((req$, ctx) => {
-    const logger = useContext(LoggerToken)(ctx.ask)
-
+  r.useEffect(req$ => {
     return req$.pipe(
       use(multipart$({maxFieldCount: 1, files: ['clubs']})),
-      tap(req =>
-        logger({message: req.files['clubs']?.filename ?? 'Not Found', tag: LoggerTag.HTTP, type: 'importClub$'}),
-      ),
-      mapTo({body: 'Hello'}),
+      tap(req => console.info(req.files['clubs']?.buffer)),
+      map(req => xlsx.read(req.files['clubs'].buffer, {type: 'buffer'})),
+      mergeMap(ClubDao.formatXLSX),
+      // tap(req => console.info(req)),
+      // map(doc => xlsx.utils.sheet_to_json(doc) as string[]),
+      // tap(req => console.info(req)),
+      map(body => ({
+        body,
+      })),
     )
   }),
 )

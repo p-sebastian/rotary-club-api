@@ -1,8 +1,8 @@
 import {combineRoutes} from '@marblejs/core'
 
 import {getUserList$} from './effects/getUserList.effect'
-import {putUser$} from './effects/putUser.effect'
+import {importUsers$} from './effects/importUsers.effect'
 
 export const users$ = combineRoutes('/user', {
-  effects: [getUserList$, putUser$],
+  effects: [getUserList$, importUsers$],
 })

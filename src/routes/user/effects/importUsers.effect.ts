@@ -5,7 +5,6 @@ import {ClubDao} from '@routes/club/model/club.dao'
 import {Club} from '@routes/club/model/club.model'
 import {DocumentType} from '@typegoose/typegoose'
 import {ignoreDuplicates} from '@util/error.util'
-// import {ignoreDuplicates} from '@util/error.util'
 import {TSheet, handleDate, numbersRegex, onlyLettersRegex} from '@util/xlsx.util'
 import {GenderEnum, UserXHeaderNames} from 'interfaces/TUser.type'
 import {Types} from 'mongoose'
@@ -81,7 +80,7 @@ const formatXLSX = (doc: xlsx.WorkBook, clubs: DocumentType<Club>[]) => {
     assignValue(UserXHeaderNames.Registered, 'registered', v => v.toLocaleLowerCase().trim() === 'registered')
     assignValue(UserXHeaderNames.SecondaryEmail, 'secondaryEmail', v => v)
     assignValue(UserXHeaderNames.Email, 'email', v => v)
-    assignValue(UserXHeaderNames.CountryCode, 'countryCode', v => v)
+    assignValue(UserXHeaderNames.CountryCode, 'countryCode', v => (!v ? 593 : Number(v)))
     assignValue(UserXHeaderNames.Phone, 'phone', v => v)
     assignValue(UserXHeaderNames.AddressLine1, 'addressLine1', v => v)
     assignValue(UserXHeaderNames.AddressLine2, 'addressLine2', v => v)
@@ -126,7 +125,7 @@ const initUser = (): TUserDto =>
     admissionDate: new Date().toISOString(),
     country: 'Ecuador',
     club: '',
-    countryCode: '593',
+    countryCode: 593,
     district: '4400',
     email: 'CHANGE_ME',
     firstName: '',

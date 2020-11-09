@@ -41,6 +41,6 @@ export const Config: IConfig = {
     level: (process.env.LOG_LEVEL as LoggerLevel) || ENV.LOG_LEVEL,
   },
   jwt: {
-    secret: ENV.JWT_SECRET,
+    secret: ENV.TOKEN_SECRET,
   },
 }

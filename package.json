@@ -22,6 +22,7 @@
   "dependencies": {
     "@marblejs/core": "^3.4.3",
     "@marblejs/middleware-body": "^3.4.3",
+    "@marblejs/middleware-cors": "^3.4.3",
     "@marblejs/middleware-io": "^3.4.3",
     "@marblejs/middleware-jwt": "^3.4.3",
     "@marblejs/middleware-logger": "^3.4.3",

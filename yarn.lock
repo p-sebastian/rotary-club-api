@@ -223,6 +223,11 @@
     qs "^6.6.0"
     type-is "~1.6.16"
 
+"@marblejs/middleware-cors@^3.4.3":
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-cors/-/middleware-cors-3.4.3.tgz#4382bdba953aa9b5ca3d7d1d8e3972ab8e340dbc"
+  integrity sha512-W+kbREtiUJ16qwWeuriUKZzhIa9yejOc5DIWpgRUSZR6cM4NV5PpUrzN1nqMzJfUm2trj2+s++SewvdEBvo2JA==
+
 "@marblejs/middleware-io@^3.4.3":
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/@marblejs/middleware-io/-/middleware-io-3.4.3.tgz#bda7c8b48f07fd568e584d9641977fb95e5459ab"

@@ -26,7 +26,7 @@ export const UserDto = Object.freeze({
     registered: t.boolean,
     email: t.string,
     secondaryEmail: optional(t.string),
-    countryCode: t.string,
+    countryCode: t.number,
     phone: optional(t.string),
     addressLine1: optional(t.string),
     addressLine2: optional(t.string),
@@ -42,7 +42,42 @@ export const UserDto = Object.freeze({
     sub: t.string,
     email: t.string,
   }),
+  verify: t.type({
+    identification: t.string,
+  }),
+  login: t.type({
+    sub: t.string,
+  }),
+  register: t.type({
+    sub: t.string,
+    birthday: optional(t.string),
+    profession: optional(t.string),
+    activity: optional(t.string),
+    fullName: t.string,
+    prefix: optional(t.string),
+    firstName: t.string,
+    middleName: optional(t.string),
+    lastName: t.string,
+    suffix: optional(t.string),
+    gender: t.union([t.literal(GenderEnum.Male), t.literal(GenderEnum.Female)]),
+    language: optional(t.string),
+    affiliate: optional(t.string),
+    email: t.string,
+    secondaryEmail: optional(t.string),
+    countryCode: t.number,
+    phone: optional(t.string),
+    addressLine1: optional(t.string),
+    addressLine2: optional(t.string),
+    addressLine3: optional(t.string),
+    city: optional(t.string),
+    state: optional(t.string),
+    province: optional(t.string),
+    country: t.string,
+    postalCode: optional(t.string),
+    postalStamp: optional(t.string),
+  }),
 })
 
 export type TUserCreate = t.TypeOf<typeof UserDto.create>
 export type TUserDto = t.TypeOf<typeof UserDto.user>
+export type TUserRegisterDto = t.TypeOf<typeof UserDto.register>

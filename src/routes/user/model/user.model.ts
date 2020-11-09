@@ -1,5 +1,5 @@
 import {Club} from '@routes/club/model/club.model'
-import {Ref, getModelForClass, prop, types} from '@typegoose/typegoose'
+import {DocumentType, Ref, getModelForClass, prop} from '@typegoose/typegoose'
 import {GenderEnum} from 'interfaces/TUser.type'
 
 export class User {
@@ -104,4 +104,28 @@ export class User {
 }
 
 export const UserModel = getModelForClass(User)
-export type TUser = types.Ref<User>
+export type TUserDoc = DocumentType<User>
+
+export const USER_SECURE_FIELDS = {
+  sub: 0,
+}
+export const USER_PUBLIC_FIELDS = {
+  ...USER_SECURE_FIELDS,
+  admissionDate: 0,
+  countryCode: 0,
+  email: 0,
+  firstName: 0,
+  identification: 0,
+  lastName: 0,
+  memberId: 0,
+  middleName: 0,
+  originalAdmissionDate: 0,
+  secondaryEmail: 0,
+  phone: 0,
+  addressLine1: 0,
+  addressLine2: 0,
+  addressLine3: 0,
+  postalCode: 0,
+  postalStamp: 0,
+  __v: 0,
+}

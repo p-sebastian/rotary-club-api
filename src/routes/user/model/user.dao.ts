@@ -6,7 +6,7 @@ import {USER_PUBLIC_FIELDS, UserModel} from './user.model'
 
 export const UserDao = Object.freeze({
   findAll: () => from(UserModel.find().populate('club', CLUB_POPULATE_FIELDS).select(USER_PUBLIC_FIELDS).exec()),
-  findUserBySub: (sub: string) => from(UserModel.findOne({sub}).exec()),
+  findUserBySub: (sub: string) => from(UserModel.findOne({sub}).populate('club', CLUB_POPULATE_FIELDS).exec()),
   register: (identification: string, user: Partial<TUserRegisterDto>) =>
     from(UserModel.findOneAndUpdate({identification}, user as any).exec()),
   verifyUser: (identification: string) =>

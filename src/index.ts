@@ -8,8 +8,8 @@ import {Database} from './config/database'
 import {listener} from './http.listener'
 
 const server = createServer({
-  port: 1337,
-  hostname: '127.0.0.1',
+  port: Number(Config.server.port),
+  hostname: Config.server.host,
   listener,
   options: {
     httpsOptions: {

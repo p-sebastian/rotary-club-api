@@ -9,7 +9,6 @@ import {listener} from './http.listener'
 
 const server = createServer({
   port: Number(Config.server.port),
-  hostname: Config.server.host,
   listener,
   options: {
     httpsOptions: {

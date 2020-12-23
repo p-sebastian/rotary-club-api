@@ -1,5 +1,6 @@
 import {t} from '@marblejs/middleware-io'
 import {optional} from '@util/optional.util'
+import {ClubTypeEnum} from 'interfaces/TClub.type'
 import {GenderEnum} from 'interfaces/TUser.type'
 
 export const UserDto = Object.freeze({
@@ -38,16 +39,20 @@ export const UserDto = Object.freeze({
     postalCode: optional(t.string),
     postalStamp: optional(t.string),
   }),
+
   create: t.type({
     sub: t.string,
     email: t.string,
   }),
+
   verify: t.type({
     identification: t.string,
   }),
+
   login: t.type({
     sub: t.string,
   }),
+
   register: t.type({
     sub: t.string,
     birthday: optional(t.string),
@@ -76,8 +81,21 @@ export const UserDto = Object.freeze({
     postalCode: optional(t.string),
     postalStamp: optional(t.string),
   }),
+
+  filter: t.type({
+    ageEnabled: optional(t.boolean),
+    club: t.array(t.string),
+    range: optional(
+      t.type({
+        lower: t.number,
+        upper: t.number,
+      }),
+    ),
+    type: optional(t.union([t.literal(ClubTypeEnum.Rotary), t.literal(ClubTypeEnum.Rotarac)])),
+  }),
 })
 
 export type TUserCreate = t.TypeOf<typeof UserDto.create>
 export type TUserDto = t.TypeOf<typeof UserDto.user>
 export type TUserRegisterDto = t.TypeOf<typeof UserDto.register>
+export type TUserFilterDTO = t.TypeOf<typeof UserDto.filter>

@@ -25,6 +25,9 @@ export const CLUB_CODE_FIELDS = {
 export const CLUB_POPULATE_FIELDS = {
   __v: 0,
   foundedOn: 0,
-  code: 0,
+  active: 0,
+}
+export const CLUB_ALL_POPULATE_FIELDS = {
+  __v: 0,
   active: 0,
 }

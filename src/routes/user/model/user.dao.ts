@@ -1,16 +1,26 @@
 import {CLUB_POPULATE_FIELDS} from '@routes/club/model/club.model'
+import {Types} from 'mongoose'
 import {from} from 'rxjs'
 
 import {TUserDto, TUserFilterDTO, TUserRegisterDto} from './user.dto'
-import {USER_PUBLIC_FIELDS, UserModel} from './user.model'
+import {USER_ID_FIELD, USER_PUBLIC_FIELDS, UserModel} from './user.model'
 
 export const UserDao = Object.freeze({
   findAll: () => from(UserModel.find().populate('club', CLUB_POPULATE_FIELDS).select(USER_PUBLIC_FIELDS).exec()),
+
+  findByName: (fullName: string) => from(UserModel.findOne({fullName}).select(USER_ID_FIELD).exec()),
 
   findUserBySub: (sub: string) => from(UserModel.findOne({sub}).populate('club', CLUB_POPULATE_FIELDS).exec()),
 
   register: (identification: string, user: Partial<TUserRegisterDto>) =>
     from(UserModel.findOneAndUpdate({identification}, user as any).exec()),
+
+  updateRole: (_id: string, role: string) =>
+    from(
+      UserModel.findByIdAndUpdate(_id, {role: Types.ObjectId(role)})
+        .select(USER_ID_FIELD)
+        .exec(),
+    ),
 
   verifyUser: (identification: string) =>
     from(UserModel.findOne({identification}).populate('club', CLUB_POPULATE_FIELDS).exec()),

@@ -17,6 +17,9 @@ export class Meeting {
 
   @prop({required: true, ref: 'Club'})
   public club!: Ref<Club>
+
+  @prop({required: true, ref: 'User'})
+  public createdBy!: Ref<User>
 }
 
 export const MeetingModel = getModelForClass(Meeting)

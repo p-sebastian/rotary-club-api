@@ -93,9 +93,14 @@ export const UserDto = Object.freeze({
     ),
     type: optional(t.union([t.literal(ClubTypeEnum.Rotary), t.literal(ClubTypeEnum.Rotarac)])),
   }),
+
+  allUsersOfClub: t.type({
+    club: t.string,
+  }),
 })
 
 export type TUserCreate = t.TypeOf<typeof UserDto.create>
 export type TUserDto = t.TypeOf<typeof UserDto.user>
 export type TUserRegisterDto = t.TypeOf<typeof UserDto.register>
 export type TUserFilterDTO = t.TypeOf<typeof UserDto.filter>
+export type TUserAllUsersOfClub = t.TypeOf<typeof UserDto.allUsersOfClub>

@@ -1,4 +1,5 @@
 import {CLUB_POPULATE_FIELDS} from '@routes/club/model/club.model'
+import {ROLE_TITLE_FIELDS} from '@routes/role/model/role.model'
 import {Types} from 'mongoose'
 import {from} from 'rxjs'
 
@@ -35,6 +36,15 @@ export const UserDao = Object.freeze({
         .populate(by.type ? {path: 'club', select: 'type', type: {$eq: by.type}} : {path: 'club'})
         .select({_id: 1})
         .distinct('_id')
+        .exec(),
+    ),
+
+  allUsersOfClub: (by: string) =>
+    from(
+      UserModel.find({club: {$in: [by]}})
+        .populate('club', CLUB_POPULATE_FIELDS)
+        .populate('role', ROLE_TITLE_FIELDS)
+        .select(USER_PUBLIC_FIELDS)
         .exec(),
     ),
 })

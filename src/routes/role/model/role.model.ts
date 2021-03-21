@@ -17,3 +17,11 @@ export class Role {
 }
 
 export const RoleModel = getModelForClass(Role)
+
+export const ROLE_TITLE_FIELDS = {
+  __v: 0,
+  _id: 0,
+  active: 0,
+  period: 0,
+  user: 0,
+}
